@@ -22,7 +22,7 @@ from arches.app.permissions.arches_default_deny import (
 from arches.app.search.elasticsearch_dsl_builder import Bool, Nested, Terms
 from arches.app.models.models import ResourceInstance
 from arches.app.search.search import SearchEngine
-import rule_based_perms.permissions.rules as rules
+import arches_rule_based_permissions.permissions.rules as rules
 
 
 class ArchesFilteredPermissionFramework(ArchesDefaultDenyPermissionFramework):

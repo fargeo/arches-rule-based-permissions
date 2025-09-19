@@ -9,12 +9,12 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("rule_based_perms", "0001_initial"),
+        ("arches_rule_based_permissions", "0001_initial"),
     ]
 
     def add_rule_config(apps, schema_editor):
         Group = apps.get_model("auth", "Group")
-        RuleConfig = apps.get_model("rule_based_perms", "RuleConfig")
+        RuleConfig = apps.get_model("arches_rule_based_permissions", "RuleConfig")
         resource_reviewers = Group.objects.get(name="Resource Reviewer")
         rc = RuleConfig.objects.create(
             id=uuid.UUID("baca30f6-96f6-4191-9fa1-f65cb0e3808d"),
@@ -64,7 +64,7 @@ class Migration(migrations.Migration):
         resource_spatial_config.groups.set((resource_reviewers,))
 
     def remove_rule_config(apps, schema_editor):
-        RuleConfig = apps.get_model("rule_based_perms", "RuleConfig")
+        RuleConfig = apps.get_model("arches_rule_based_permissions", "RuleConfig")
         RuleConfig.objects.get(
             id=uuid.UUID("baca30f6-96f6-4191-9fa1-f65cb0e3808d")
         ).delete()

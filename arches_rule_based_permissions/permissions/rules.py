@@ -10,7 +10,7 @@ from django.db.models.fields.json import KT
 from django.db.models.query import QuerySet
 from django.http import HttpRequest
 
-from rule_based_perms.models import RuleConfig
+from arches_rule_based_permissions.models import RuleConfig
 from django.contrib.gis.geos import GEOSGeometry
 from django.contrib.gis.db.models.functions import AsGeoJSON, Transform
 import json

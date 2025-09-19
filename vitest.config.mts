@@ -41,7 +41,7 @@ function generateConfig(): Promise<UserConfigExport> {
             test: {
                 alias: alias,
                 coverage: {
-                    include: [path.join('rule_based_perms', 'src', path.sep)],
+                    include: [path.join('arches_rule_based_permissions', 'src', path.sep)],
                     exclude: exclude,
                     reporter: [
                         ['clover', { 'file': 'coverage.xml' }],

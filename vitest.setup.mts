@@ -1,5 +1,5 @@
 import { beforeAll, vi } from 'vitest';
-import '@/rule_based_perms/declarations.d.ts';
+import '@/arches_rule_based_permissions/declarations.d.ts';
 
 
 beforeAll(() => {

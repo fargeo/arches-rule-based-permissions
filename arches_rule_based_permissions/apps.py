@@ -3,7 +3,7 @@ from arches.settings_utils import generate_frontend_configuration
 
 
 class RuleBasedPermsConfig(AppConfig):
-    name = "rule_based_perms"
+    name = "arches_rule_based_permissions"
     verbose_name = "Rule Based Permissions"
     is_arches_application = True
 

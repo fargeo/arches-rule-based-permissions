@@ -1,6 +1,6 @@
 [run]
 source =
-    rule_based_perms/
+    arches_rule_based_permissions/
 
 omit =
     */python?.?/*

@@ -7,7 +7,9 @@ import platform
 if platform.system().lower() == "windows":
     os.environ.setdefault("FORKED_BY_MULTIPROCESSING", "1")
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rule_based_perms.settings')
-app = Celery('rule_based_perms')
-app.config_from_object('django.conf:settings', namespace='CELERY')
+os.environ.setdefault(
+    "DJANGO_SETTINGS_MODULE", "arches_rule_based_permissions.settings"
+)
+app = Celery("arches_rule_based_permissions")
+app.config_from_object("django.conf:settings", namespace="CELERY")
 app.autodiscover_tasks()
