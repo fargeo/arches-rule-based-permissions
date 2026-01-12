@@ -1,1 +1,1 @@
-graft *
+exclude arches-rules-based-permissions/settings_local.py

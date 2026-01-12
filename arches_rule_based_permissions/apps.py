@@ -1,5 +1,4 @@
 from django.apps import AppConfig
-from arches.settings_utils import generate_frontend_configuration
 
 
 class RuleBasedPermsConfig(AppConfig):
@@ -7,5 +6,3 @@ class RuleBasedPermsConfig(AppConfig):
     verbose_name = "Rule Based Permissions"
     is_arches_application = True
 
-    def ready(self):
-        generate_frontend_configuration()

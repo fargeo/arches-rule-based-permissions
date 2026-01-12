@@ -126,7 +126,6 @@ SEARCH_THUMBNAILS = False
 
 INSTALLED_APPS = (
     "webpack_loader",
-    "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -138,7 +137,9 @@ INSTALLED_APPS = (
     "arches.app.models",
     "arches.management",
     "guardian",
-    "captcha",
+    "django_recaptcha",
+    "pgtrigger",
+    "django_sql_migrate",
     "revproxy",
     "corsheaders",
     "oauth2_provider",
@@ -149,7 +150,10 @@ INSTALLED_APPS = (
 
 # Placing this last ensures any templates provided by Arches Applications
 # take precedence over core arches templates in arches/app/templates.
-INSTALLED_APPS += ("arches.app",)
+INSTALLED_APPS += (
+    "arches.app",
+    "django.contrib.admin",
+    )
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -239,7 +243,13 @@ LOGGING = {
             "handlers": ["file", "console"],
             "level": "WARNING",
             "propagate": True,
-        }
+        },
+        "django.request": {
+            "handlers": ["file", "console"],
+            "level": "WARNING",  # or consider ERROR if this is too noisy
+            "propagate": True,
+        },
+        # consider adding your own project here if it logs
     },
 }
 

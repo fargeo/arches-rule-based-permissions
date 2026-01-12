@@ -2,26 +2,28 @@
     "name": "arches_rule_based_permissions",
     "license": "AGPL-3.0-only",
     "scripts": {
-        "build_development": "npm run eslint:check && npm run ts:check && cross-env NODE_OPTIONS=--max-old-space-size=2048 webpack --config ./webpack/webpack.config.dev.js",
-        "build_production": "npm run eslint:check && npm run ts:check && cross-env NODE_OPTIONS=--max-old-space-size=2048 NODE_ENV=production webpack --config ./webpack/webpack.config.prod.js",
-        "build_test": "npm run eslint:check && npm run ts:check && cross-env NODE_OPTIONS=--max-old-space-size=2048 webpack --config ./webpack/webpack.config.dev.js --env test=true",
+        "build_development": "npm run eslint:check && npm run ts:check && cross-env webpack --config ./webpack/webpack.config.dev.js",
+        "build_production": "npm run eslint:check && npm run ts:check && cross-env webpack --config ./webpack/webpack.config.prod.js",
+        "build_test": "npm run eslint:check && npm run ts:check && cross-env webpack --config ./webpack/webpack.config.dev.js --env test=true",
         "eslint:check": "eslint **/src",
-        "eslint:fix": "eslint **/src --fix",
+        "eslint:fix": "eslint --fix",
+        "eslint:fix:all": "npm run eslint:fix **/src",
         "eslint:watch": "nodemon --watch . --ext ts,vue --exec npm run --silent eslint:check",
         "gettext:extract": "vue-gettext-extract",
         "gettext:compile": "vue-gettext-compile",
         "prettier:check": "prettier arches_rule_based_permissions/src --check",
-        "prettier:fix": "prettier arches_rule_based_permissions/src --write",
+        "prettier:fix": "prettier --write",
+        "prettier:fix:all": "npm run prettier:fix **/src",
         "ts:check": "vue-tsc --noEmit",
+        "start": "cross-env webpack serve --config ./webpack/webpack.config.dev.js",
         "ts:watch": "vue-tsc --watch --noEmit",
-        "start": "cross-env NODE_OPTIONS=--max-old-space-size=2048 webpack serve --config ./webpack/webpack.config.dev.js",
         "vitest": "vitest --run --coverage"
     },
     "dependencies": {
-        "arches": "archesproject/arches#dev/7.6.x"
+        "arches": "archesproject/arches#stable/8.0.3"
     },
     "devDependencies": {
-        "arches-dev-dependencies": "archesproject/arches-dev-dependencies#dev/7.6.x"
+        "arches-dev-dependencies": "archesproject/arches-dev-dependencies#dev/8.1.x"
     },
     "nodeModulesPaths": {
     },
