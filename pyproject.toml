@@ -23,7 +23,7 @@ classifiers = [
 ]
 requires-python = ">=3.11"
 dependencies = [
-    "arches>=8.0.3,<8.1.0",
+     "arches @ git+https://github.com/archesproject/arches.git@adg/filtered-permission-stub",
 ]
 version = "0.0.1"
 
