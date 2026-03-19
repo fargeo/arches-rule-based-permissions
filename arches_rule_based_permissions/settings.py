@@ -139,7 +139,7 @@ INSTALLED_APPS = (
     "guardian",
     "django_recaptcha",
     "pgtrigger",
-    "django_sql_migrate",
+    "django_migrate_sql",
     "revproxy",
     "corsheaders",
     "oauth2_provider",
@@ -153,7 +153,7 @@ INSTALLED_APPS = (
 INSTALLED_APPS += (
     "arches.app",
     "django.contrib.admin",
-    )
+)
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
