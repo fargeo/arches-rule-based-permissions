@@ -20,4 +20,8 @@ from .models import RuleConfig
 from django.contrib import admin
 
 
-admin.site.register([RuleConfig,])
+admin.site.register(
+    [
+        RuleConfig,
+    ]
+)

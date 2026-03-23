@@ -6,9 +6,10 @@ from arches.app.models.models import NodeGroup, Node
 
 logger = logging.getLogger(__name__)
 
+
 class RuleConfig(models.Model):
 
-    def actions_default(): # default must be a callable for JSONField
+    def actions_default():  # default must be a callable for JSONField
         return ["view_resourceinstance"]
 
     id = models.UUIDField(primary_key=True)
@@ -20,13 +21,16 @@ class RuleConfig(models.Model):
     )
     node = models.ForeignKey(Node, on_delete=models.DO_NOTHING, db_column="nodeid")
     value = models.JSONField(null=True)
-    groups = models.ManyToManyField(Group, related_name="groups", related_query_name="group")
-    actions = models.JSONField(default = actions_default) # "read, create, update, delete"
-    
+    groups = models.ManyToManyField(
+        Group, related_name="groups", related_query_name="group"
+    )
+    actions = models.JSONField(
+        default=actions_default
+    )  # "read, create, update, delete"
+
     class Meta:
         managed = True
         db_table = "rule_config"
-    
+
     def __str__(self):
         return f"{self.name}"
-    

@@ -1,6 +1,4 @@
 import { beforeAll, vi } from 'vitest';
-import '@/arches_rule_based_permissions/declarations.d.ts';
-
 
 beforeAll(() => {
     vi.mock('arches', () => ({

@@ -112,7 +112,9 @@ DATABASES = {
         "ENGINE": "django.contrib.gis.db.backends.postgis",
         "HOST": "localhost",
         "NAME": "arches_rule_based_permissions",
-        "OPTIONS": {},
+        "OPTIONS": {
+            "options": "-c cursor_tuple_fraction=1",
+        },
         "PASSWORD": "postgis",
         "PORT": "5432",
         "POSTGIS_TEMPLATE": "template_postgis",
@@ -139,7 +141,7 @@ INSTALLED_APPS = (
     "guardian",
     "django_recaptcha",
     "pgtrigger",
-    "django_sql_migrate",
+    "django_migrate_sql",
     "revproxy",
     "corsheaders",
     "oauth2_provider",
@@ -153,7 +155,7 @@ INSTALLED_APPS = (
 INSTALLED_APPS += (
     "arches.app",
     "django.contrib.admin",
-    )
+)
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
