@@ -2,6 +2,29 @@
 
 A permission framework for [Arches](https://www.archesproject.org/) that controls which resources users can access based on configurable rules. Instead of assigning permissions resource-by-resource, you define rules that say things like "members of Group X can view any resource where field Y has value Z" — and those rules are evaluated dynamically for every query.
 
+## Installation
+
+```shell
+git clone https://github.com/fargeo/arches-rule-based-permissions.git
+pip install -e ./arches-rule-based-permissions
+```     
+
+Add "arches_rule_based_permissions" to INSTALLED_APPS in settings.py
+```python
+INSTALLED_APPS = (
+    "my_project",
+    "webpack_loader",
+    "django.contrib.auth",
+    ...
+    "arches_rule_based_permissions",
+)
+```
+
+Update your permission framework:
+```python
+PERMISSION_FRAMEWORK = "arches_filtered_permissions.ArchesFilteredPermissionFramework"
+```
+
 ## How it works
 
 Each rule (`RuleConfig`) combines three things:
@@ -33,7 +56,7 @@ SELECT nodeid, name, nodegroupid FROM nodes WHERE name = 'My Field Name';
 In your Arches application, create a new migration file:
 
 ```
-python manage.py makemigrations --empty arches_rule_based_permissions
+python manage.py makemigrations --empty my_project
 ```
 
 Then fill in the migration using one of the examples below.
